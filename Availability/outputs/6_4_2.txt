@@ -1,0 +1,21 @@
+
+Unsat for hRASS
+Unsat for hRASS
+6 20669 5 3 10 14419 4 3 9
+Unsat for hRASS
+Unsat for hRASS
+5 17158 11 4 12 13626 9 4 11
+6 74883 11 4 15 58357 9 4 12
+Unsat for hRASS
+Unsat for hRASS
+Unsat for hRASS
+Unsat for hRASS
+6 75056 17 6 25 32482 7 6 12
+5 3732 3 2 4 3732 3 2 4
+Unsat for hRASS
+Unsat for hRASS
+4 19846 11 5 12 15565 9 5 8
+Unsat for hRASS
+6 15914 9 4 15 15914 9 4 15
+5 66770 11 4 12 39380 6 4 7
+5 29305 13 5 16 21615 9 5 10
