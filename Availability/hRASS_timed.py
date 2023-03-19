@@ -11,14 +11,16 @@ Ans = math.inf
 n_m = 0
 n_i = 0
 n_w = 0
+h_n_m = 0
+h_n_w = 0
+h_n_i = 0
+h_sat = 1
 n_mix = []
 
 
 def limit_time(amount):
     time.sleep(amount)
-    h_n_m = sum(n_mix)
-    h_n_w = (h_n_m - 1) * (final[2] - 1)
-    print(final[2], final[0], sum(sum(r) for r in final[1]), h_n_m, h_n_w, Ans, n_i, n_m, n_w)
+    print(final[2], final[0], h_n_i, h_n_m, h_n_w, Ans, n_i, n_m, n_w, h_sat)
     sys.stdout.close()
     os._exit(0)
 
@@ -81,7 +83,7 @@ for m in range(2, M_max + 1):
             C2.append(X[k][j] * val[j])
             Obj.append(X[k][j] * cst[k])
             S.add(And(0 <= X[k][j], X[k][j] < m))
-        S.add(sum(X[k]) <= av[k])
+        # S.add(sum(X[k]) <= av[k])
 
     S.add(sum(C1) == T * (m ** d))
     S.add(sum(C2) <= (m ** d))
@@ -113,15 +115,22 @@ if final[2] == -1:
     os._exit(0)
 
 sm = 0
+m = final[2]
 for i in range(d, 0, -1):
     for j in range(R):
         sm += final[1][j][i]
-    n_mix[i - 1] = sm // final[2]
-    if sm % final[2] != 0:
+    n_mix[i - 1] = sm // m
+    if (sm % m) != 0:
         n_mix[i - 1] += 1
     sm = n_mix[i - 1]
 
-m = final[2]
+h_n_m = sum(n_mix)
+h_n_w = (h_n_m - 1) * (m - 1)
+for r in range(R):
+    if sum(final[1][r]) > av[r]:
+        h_sat = 0
+    h_n_i += sum(final[1][r])
+
 
 S = Solver()
 
@@ -189,8 +198,6 @@ while S.check() == sat and idx <= 100:
     S.add(Or([Or([Or([Alpha[r][i][k] != Alpha_[r][i][k] for k in range(n_mix[i])]) for i in range(d + 1)]) for r in
               range(R)]))
 
-h_n_m = sum(n_mix)
-h_n_w = (h_n_m - 1) * (final[2] - 1)
-print(final[2], final[0], sum(sum(r) for r in final[1]), h_n_m, h_n_w, Ans, n_i, n_m, n_w)
+print(final[2], final[0], h_n_i, h_n_m, h_n_w, Ans, n_i, n_m, n_w, h_sat)
 sys.stdout.close()
 os._exit(0)
