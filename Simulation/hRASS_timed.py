@@ -10,12 +10,16 @@ final = [float('inf'), [], -1]
 Ans = math.inf
 n_m = 0
 n_i = 0
+n_w = 0
+h_n_m = 0
+h_n_w = 0
+h_n_i = 0
 n_mix = []
 
 
 def limit_time(amount):
     time.sleep(amount)
-    print(final[2], final[0], sum(sum(r) for r in final[1]), sum(n_mix), Ans, n_i, n_m)
+    print(final[2], final[0], h_n_i, h_n_m, h_n_w, Ans, n_i, n_m, n_w)
     sys.stdout.close()
     os._exit(0)
 
@@ -54,7 +58,8 @@ cst = [0, ] * R
 
 for i in range(R):
     B[i] = inp[3 + i]
-    cst[i] = inp[3 + i]
+    cst[i] = inp[3 + i] * 10000
+    cst[i] //= (M_max ** d)
 
 T = inp[R + 3]
 
@@ -107,15 +112,19 @@ if final[2] == -1:
     os._exit(0)
 
 sm = 0
+m = final[2]
 for i in range(d, 0, -1):
     for j in range(R):
         sm += final[1][j][i]
-    n_mix[i-1] = sm // final[2]
-    if sm % final[2] != 0:
-        n_mix[i-1] += 1
-    sm = n_mix[i-1]
+    n_mix[i - 1] = sm // m
+    if (sm % m) != 0:
+        n_mix[i - 1] += 1
+    sm = n_mix[i - 1]
 
-m = final[2]
+h_n_m = sum(n_mix)
+h_n_w = (h_n_m - 1) * (m - 1)
+h_n_i += sum(sum(final[1][r]) for r in range(R))
+
 
 S = Solver()
 
@@ -159,19 +168,27 @@ while S.check() == sat and idx <= 100:
     mdl = S.model()
     Alpha_ = [[[int(str(mdl[Alpha[r][i][k]])) for k in range(n_mix[i])] for i in range(d + 1)] for r in range(R)]
     C_ = [[int(str(mdl[C[i][k]])) for k in range(n_mix[i])] for i in range(d + 1)]
+    W_ = [[[int(str(mdl[W[i][k][l]])) for l in range(n_mix[i - 1])] for k in range(n_mix[i])] for i in range(d + 1)]
 
     cst_ = calc_obj(Alpha_, cst)
+    nw_ = 0
     idx += 1
+
+    for i in range(1, d + 1):
+        for k in range(n_mix[i]):
+            if C_[i][k] == 0:
+                continue
+            nw_ += (m - sum(W_[i][k]))
+
     if Ans > cst_:
         Ans = cst_
         n_m = sum(sum(int(bool(x)) for x in y) for y in C_)
         n_i = sum(sum(sum(x) for x in y) for y in Alpha_)
+        n_w = nw_
 
     S.add(Or([Or([Or([Alpha[r][i][k] != Alpha_[r][i][k] for k in range(n_mix[i])]) for i in range(d + 1)]) for r in
               range(R)]))
 
-print(final[2], final[0], sum(sum(r) for r in final[1]), sum(n_mix), Ans, n_i, n_m)
+print(final[2], final[0], h_n_i, h_n_m, h_n_w, Ans, n_i, n_m, n_w)
 sys.stdout.close()
 os._exit(0)
-
-# 2 4 3 5 7 13 5 7 13 11 16
