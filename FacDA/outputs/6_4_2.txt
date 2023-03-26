@@ -1,0 +1,16 @@
+6 44482 7 3 4
+6 8973 2 3 3
+6 inf inf inf inf
+6 10393 5 3 8
+6 8706 6 3 3
+6 inf inf inf inf
+6 inf inf inf inf
+6 inf inf inf inf
+6 3262 5 3 4
+6 3732 3 2 1
+6 20644 6 2 3
+6 73406 13 4 8
+6 10174 5 2 1
+6 27197 7 3 5
+6 inf inf inf inf
+6 13260 6 3 3

@@ -1,0 +1,15 @@
+4 23764 8 3 4
+4 12410 6 3 3
+4 inf inf inf inf
+4 inf inf inf inf
+4 32917 4 3 2
+4 9667 4 3 3
+4 23065 4 3 3
+4 19228 6 3 3
+4 24069 5 3 3
+4 inf inf inf inf
+4 inf inf inf inf
+4 31306 6 3 3
+4 inf inf inf inf
+4 25308 6 2 3
+4 inf inf inf inf
