@@ -1,5 +1,6 @@
 5 15888 3 2 1
 5 inf inf inf inf
+5 inf inf inf inf
 5 20544 3 1 0
 5 11360 5 2 2
 5 inf inf inf inf

@@ -1,5 +1,6 @@
 4 22224 4 2 1
 4 inf inf inf inf
+4 inf inf inf inf
 4 33026 4 4 5
 4 20563 5 3 3
 4 29294 4 2 2
@@ -10,6 +11,7 @@
 4 inf inf inf inf
 4 inf inf inf inf
 4 47224 7 3 3
+4 inf inf inf inf
 4 10457 3 2 1
 4 11484 2 1 0
 4 13348 3 4 5

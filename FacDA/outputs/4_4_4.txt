@@ -9,6 +9,7 @@
 4 9726 2 2 1
 4 26248 5 3 3
 4 inf inf inf inf
+4 inf inf inf inf
 4 25624 4 2 1
 4 13592 4 1 0
 4 inf inf inf inf

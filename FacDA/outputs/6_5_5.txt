@@ -2,6 +2,7 @@
 6 7636 7 3 6
 6 inf inf inf inf
 6 inf inf inf inf
+6 inf inf inf inf
 6 23531 4 3 4
 6 inf inf inf inf
 6 inf inf inf inf

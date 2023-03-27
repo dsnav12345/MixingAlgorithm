@@ -9,7 +9,9 @@
 6 inf inf inf inf
 6 inf inf inf inf
 6 inf inf inf inf
+6 inf inf inf inf
 6 12358 2 2 1
+6 inf inf inf inf
 6 inf inf inf inf
 6 36786 7 3 3
 6 34119 7 2 3

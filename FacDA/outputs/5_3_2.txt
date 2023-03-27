@@ -1,9 +1,11 @@
 5 11920 2 3 3
 5 inf inf inf inf
 5 inf inf inf inf
+5 inf inf inf inf
 5 19520 3 2 2
 5 1920 2 2 1
 5 24400 5 2 1
+5 inf inf inf inf
 5 46160 8 3 4
 5 9600 3 1 0
 5 13760 4 2 2
