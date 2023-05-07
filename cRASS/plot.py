@@ -116,27 +116,27 @@ fig.savefig('Plots/All_Graphs.png')
 
 ################### Individual Graph production ###########################################
 
-# fig = [[], []]
-# ax = [[], []]
-# name_x = ['Cst', 'Ni', 'Nm', 'Nw']
-# name_y = ['Mix', 'Depth']
-# for i in range(2):
-#     for j in range(4):
-#         fig[i].append(plt.figure())
-#         ax[i].append(fig[i][j].add_subplot())
-#         rect = ax[i][j].bar(x[i] - width / 2, data[i][j][0], width, label='hRASS', color='r', edgecolor='black')
-#         # ax[i, j].bar_label(rect, padding=3)
-#         rect = ax[i][j].bar(x[i] + width / 2, data[i][j][1], width, label='vRASS', color='b', edgecolor='black')
-#         # ax[i, j].bar_label(rect, padding=3)
-#
-#         ax[i][j].set_ylabel(y_l[j])
-#         ax[i][j].set_xlabel(x_l[i])
-#
-#         ax[i][j].set_xticks(x[i])
-#         ax[i][j].set_xticklabels(labels[i])
-#         ax[i][j].legend()
-#
-#         fig[i][j].savefig('Plots/{}_vs_{}.png'.format(name_x[j], name_y[i]))
+fig = [[], []]
+ax = [[], []]
+name_x = ['Cst', 'Ni', 'Nm', 'Nw']
+name_y = ['Mix', 'Depth']
+for i in range(2):
+    for j in range(4):
+        fig[i].append(plt.figure())
+        ax[i].append(fig[i][j].add_subplot())
+        rect = ax[i][j].bar(x[i] - width / 2, data[i][j][0], width, label='hRASS', color='r', edgecolor='black')
+        # ax[i, j].bar_label(rect, padding=3)
+        rect = ax[i][j].bar(x[i] + width / 2, data[i][j][1], width, label='vRASS', color='b', edgecolor='black')
+        # ax[i, j].bar_label(rect, padding=3)
+
+        ax[i][j].set_ylabel(y_l[j])
+        ax[i][j].set_xlabel(x_l[i])
+
+        ax[i][j].set_xticks(x[i])
+        ax[i][j].set_xticklabels(labels[i])
+        ax[i][j].legend()
+
+        fig[i][j].savefig('Plots/{}_vs_{}.png'.format(name_x[j], name_y[i]))
 
 t1 = [(x*600)/45000 for x in data[0][0][0]]
 t2 = [(x*600)/45000 for x in data[0][0][1]]

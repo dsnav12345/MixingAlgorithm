@@ -63,7 +63,7 @@ for i in range(R):
 
 T = inp[2 * R + 3]
 
-# Comment the line below if you want to print the output in terminal
+# Redirect output to the file
 sys.stdout = open('./outputs/' + str(inp[0]) + '_' + str(inp[1]) + '_' + str(inp[2]) + '.txt', 'a')
 
 # Using threads to limit the execution of a testcase for some time
